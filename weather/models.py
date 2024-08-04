@@ -5,6 +5,7 @@ class District(models.Model):
     name = models.CharField(max_length=100)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -15,7 +16,6 @@ class WeatherData(models.Model):
     date = models.DateField()
     time = models.TimeField()
     temperature = models.FloatField()
-    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         formatted_date = self.date.strftime('%b %d, %Y')
